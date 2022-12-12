@@ -17,55 +17,16 @@
 <li>Примените миграции - python3 manage.py makemigrations python manage.py migrate</li>
 <li>Запустите сервер: python3 manage.py runserver</li>
   
-  <h2>Примеры запросов:</h2>
-  <ul>
-    <li>
-      <p>Пример запроса GET.posts:http://127.0.0.1:8000/api/v1/posts/</p>
-      <p> Припер ответа GET.posts: {
-                                    "id": 0,
-                                    "author": "string",
-                                    "text": "string",
-                                    "pub_date": "2019-08-24T14:15:22Z",
-                                    "image": "string",
-                                    "group": 0
-                                    }
-     </p>
-   </li>
-      <ul>
-    <li>
-      <p>Пример запроса POST.posts:http://127.0.0.1:8000/api/v1/posts/</p>
-      <p> Припер ответа POST.posts: {
-                                 {
-                                 "text": "string",
-                                 "image": "string",
-                                 "group": 0
-                                  }
-     </p>
-   </li>
-      <ul>
-    <li>
-      <p>Пример запроса GET.comments:http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/</p>
-      <p> Припер ответа GET.comments: [
-{
-"id": 0,
-"author": "string",
-"text": "string",
-"created": "2019-08-24T14:15:22Z",
-"post": 0
-}
-]
-   </li>
-      <ul>
-    <li>
-      <p>Пример запроса GET.follow:http://127.0.0.1:8000/api/v1/follow/</p>
-      <p> Припер ответа GET.follow: [
-{
-"user": "string",
-"following": "string"
-}
-]
-        </ul>
-    
+<h2>Примеры запросов:</h2>
+<p>Пример запроса GET.posts:http://127.0.0.1:8000/api/v1/posts/</p>
+<p> Припер ответа GET.posts: {"id": 0,"author": "string","text": "string","pub_date": "2019-08-24T14:15:22Z","image": "string","group": 0}</p>
+<p>Пример запроса POST.posts:http://127.0.0.1:8000/api/v1/posts/</p>
+<p> Припер ответа POST.posts: {{"text": "string","image": "string","group": 0}</p>
+<p>Пример запроса GET.comments:http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/</p>
+<p> Припер ответа GET.comments: [{"id": 0,"author": "string","text": "string","created": "2019-08-24T14:15:22Z","post": 0}]
+<p>Пример запроса GET.follow:http://127.0.0.1:8000/api/v1/follow/</p>
+<p> Припер ответа GET.follow: [{"user": "string","following": "string"}]
+
     
 <p>Более подробная документация доступна по ссылке: http://127.0.0.1:8000/redoc/
 
