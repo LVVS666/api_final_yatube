@@ -6,7 +6,7 @@ from rest_framework import mixins
 from rest_framework import filters
 
 
-from posts.models import Group, Post, Comment
+from posts.models import Group, Post, Comment, Follow
 from api.serializers import (CommentSerializer,
                              PostSerializer,
                              GroupSerializer,
@@ -33,7 +33,7 @@ class FollowViewSet(mixins.CreateModelMixin, mixins.ListModelMixin,
     search_fields = ('following__username', 'user__username')
 
     def get_queryset(self):
-        return self.request.user.follower
+        return Follow.objects.filter(user=self.request.user)
 
     def perfom_create(self, serializer):
         serializer.save(user=self.request.user)
