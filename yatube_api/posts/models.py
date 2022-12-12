@@ -33,6 +33,25 @@ class Post(models.Model):
         return self.text
 
 
+class Follow(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='follower')
+    following = models.ForeignKey(User,on_delete=models.CASCADE,related_name='following')
+
+    class Meta:
+            verbose_name = "Подписка"
+            verbose_name_plural = "Подписки"
+            constraints = [
+                models.CheckConstraint(
+                    check=~models.Q(user=models.F("following")),
+                    name="no_self_follow",
+                ),
+                models.UniqueConstraint(
+                    fields=["user", "following"], name="unique_user_author"
+                ),
+            ]
+    def __str__(self):
+        return f'{self.user}, {self.following}'
+
 class Comment(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='comments')
