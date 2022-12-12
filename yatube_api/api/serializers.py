@@ -7,6 +7,19 @@ from posts.models import Comment, Post, Group, User, Follow
 from rest_framework.validators import UniqueTogetherValidator
 
 
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = (
+            "id",
+            "username",
+            "first_name",
+            "last_name",
+        )
+        ref_name = "ReadOnlyUsers"
+
+
 class PostSerializer(serializers.ModelSerializer):
     author = SlugRelatedField(slug_field='username', read_only=True)
 
