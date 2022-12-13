@@ -12,12 +12,12 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
-            "id",
-            "username",
-            "first_name",
-            "last_name",
+            'id',
+            'username',
+            'first_name',
+            'last_name',
         )
-        ref_name = "ReadOnlyUsers"
+        ref_name = 'ReadOnlyUsers'
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -48,27 +48,27 @@ class CommentSerializer(serializers.ModelSerializer):
 class FollowSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(
         read_only=True,
-        slug_field="username",
+        slug_field='username',
         default=serializers.CurrentUserDefault(),
     )
     following = serializers.SlugRelatedField(
         queryset=User.objects.all(),
-        slug_field="username",
+        slug_field='username',
     )
 
     def validate_following(self, value):
-        if value == self.context["request"].user:
+        if value == self.context['request'].user:
             raise serializers.ValidationError(
-                "Нельзя подписаться на самого себя."
+                'Нельзя подписаться на самого себя.'
             )
         return value
 
     class Meta:
         model = Follow
-        fields = "__all__"
+        fields = '__all__'
         validators = [
             UniqueTogetherValidator(
                 queryset=Follow.objects.all(),
-                fields=("user", "following")
+                fields=('user', 'following')
             )
         ]
