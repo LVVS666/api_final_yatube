@@ -23,7 +23,7 @@
 *Припер ответа GET.posts: {"id": 0,"author": "string","text": "string","pub_date": "2019-08-24T14:15:22Z","image": "string","group": 0}
 
 *Пример запроса POST.posts:http://127.0.0.1:8000/api/v1/posts/
-*Припер ответа POST.posts: {{"text": "string","image": "string","group": 0}
+*Приvер ответа POST.posts: {{"text": "string","image": "string","group": 0}
 
 *Пример запроса GET.comments:http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
 *Припер ответа GET.comments: [{"id": 0,"author": "string","text": "string","created": "2019-08-24T14:15:22Z","post": 0}]
